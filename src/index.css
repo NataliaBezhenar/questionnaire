@@ -2,13 +2,18 @@
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
   font-family: "Noto Sans JP", sans-serif;
+  font-size: 62.5%;
 }
 
 body {
-  margin: 0;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
   background-color: #fff;
 }
