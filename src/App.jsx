@@ -1,5 +1,5 @@
 import { Component } from "react";
-//import Form from "./components/Form/Form";
+import Form from "./components/Form/Form";
 
 class App extends Component {
   formSubmitHandler = (data) => {
@@ -7,10 +7,7 @@ class App extends Component {
   };
 
   render() {
-    return <div></div>;
-
-    //   <Form abc={this.formSubmitHandler} />;
-    // }
+    return <Form abc={this.formSubmitHandler} />;
   }
 }
 
