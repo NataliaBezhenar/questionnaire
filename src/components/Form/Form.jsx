@@ -2,6 +2,7 @@ import { Component } from "react";
 import "./Form.css";
 
 import Buttons from "../Buttons/Buttons";
+import TextAreas from "../TextAreas/TextAreas";
 
 class Form extends Component {
   state = {
@@ -24,7 +25,7 @@ class Form extends Component {
   };
 
   resetForm = () => {
-    this.setState({
+    this.setState(() => ({
       firstName: "",
       lastName: "",
       birthDate: "",
@@ -33,14 +34,12 @@ class Form extends Component {
       about: "",
       technologies: "",
       project: "",
-    });
+    }));
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     this.props.abc(this.state);
-
     this.resetForm();
   };
 
@@ -94,7 +93,7 @@ class Form extends Component {
                 name="birthDate"
                 value={this.state.birthDate}
                 onChange={this.handleChange}
-                required
+                //required
               />
             </label>
           </div>
@@ -108,7 +107,7 @@ class Form extends Component {
                 value={this.state.phone}
                 onChange={this.handleChange}
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                required
+                //required
                 placeholder="123-123-1234"
               />
             </label>
@@ -129,52 +128,11 @@ class Form extends Component {
           </div>
         </div>
 
-        <div className="form__text-areas">
-          <div className="input-field">
-            <label>
-              About Yourself
-              <textarea
-                type="text"
-                name="about"
-                rows="7"
-                cols="50"
-                value={this.state.about}
-                onChange={this.handleChange}
-                placeholder="Few words about yourself..."
-              />
-            </label>
-          </div>
+        <TextAreas
+          onTextAreaChange={this.handleChange}
+          textValue={this.state}
+        />
 
-          <div className="input-field">
-            <label>
-              Technologies Stack
-              <textarea
-                type="text"
-                name="technologies"
-                rows="7"
-                cols="50"
-                value={this.state.technologies}
-                onChange={this.handleChange}
-                placeholder="HTML5, CSS3, JavaScript..."
-              />
-            </label>
-          </div>
-
-          <div className="input-field">
-            <label>
-              Last Project Description
-              <textarea
-                type="text"
-                name="project"
-                rows="7"
-                cols="50"
-                value={this.state.project}
-                onChange={this.handleChange}
-                placeholder="Describe your last project please"
-              />
-            </label>
-          </div>
-        </div>
         <Buttons />
       </form>
     );
