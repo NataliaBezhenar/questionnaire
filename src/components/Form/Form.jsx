@@ -6,16 +6,19 @@ import TextAreas from "../TextAreas/TextAreas";
 import Inputs from "../Inputs/Inputs";
 
 class Form extends Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    birthDate: "",
-    phone: "",
-    site: "",
-    about: "",
-    technologies: "",
-    project: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: "",
+      lastName: "",
+      birthDate: "",
+      phone: "",
+      site: "",
+      about: "",
+      technologies: "",
+      project: "",
+    };
+  }
 
   handleChange = (e) => {
     const { name, value } = e.currentTarget;
