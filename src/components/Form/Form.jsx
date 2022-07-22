@@ -1,6 +1,8 @@
 import { Component } from "react";
 import "./Form.css";
 
+import Buttons from "../Buttons/Buttons";
+
 class Form extends Component {
   state = {
     firstName: "",
@@ -173,17 +175,10 @@ class Form extends Component {
             </label>
           </div>
         </div>
-
-        <div className="input__buttons-group">
-          <button className="btn btn-full" type="submit">
-            Save
-          </button>
-          <button className="btn btn-outline" type="reset">
-            Reset the form!
-          </button>
-        </div>
+        <Buttons />
       </form>
     );
   }
 }
+
 export default Form;
