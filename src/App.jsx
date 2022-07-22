@@ -14,7 +14,7 @@ class App extends Component {
       <>
         <Container>
           <Header />
-          <Form abc={this.formSubmitHandler} />
+          <Form onFormSubmit={this.formSubmitHandler} />
         </Container>
         <Footer />
       </>
