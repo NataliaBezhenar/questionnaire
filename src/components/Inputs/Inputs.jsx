@@ -2,6 +2,7 @@ import { Component } from "react";
 
 class Inputs extends Component {
   render() {
+    const { errors } = this.props.textValue;
     return (
       <div className="form__inputs-group">
         <div className="input-field">
@@ -10,14 +11,20 @@ class Inputs extends Component {
             <input
               type="text"
               name="firstName"
-              maxLength="50"
-              minLength="2"
               value={this.props.textValue.firstName}
               onChange={this.props.onInputChange}
               placeholder="John"
-              required
             />
           </label>
+          {Object.keys(errors).map((key) => {
+            if (key.includes("firstName")) {
+              return (
+                <p key={Math.random()} className="form__error">
+                  {errors[key]}
+                </p>
+              );
+            }
+          })}
         </div>
 
         <div className="input-field">
@@ -26,14 +33,20 @@ class Inputs extends Component {
             <input
               type="text"
               name="lastName"
-              maxLength="50"
-              minLength="2"
               value={this.props.textValue.lastName}
               onChange={this.props.onInputChange}
               placeholder="Johnson"
-              required
             />
           </label>
+          {Object.keys(errors).map((key) => {
+            if (key.includes("lastName")) {
+              return (
+                <p key={Math.random()} className="form__error">
+                  {errors[key]}
+                </p>
+              );
+            }
+          })}
         </div>
 
         <div className="input-field">
