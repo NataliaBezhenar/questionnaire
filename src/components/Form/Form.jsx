@@ -15,14 +15,12 @@ const INITIAL_STATE = {
   about: "",
   technologies: "",
   project: "",
-  isSubmitted: false,
 };
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = { ...INITIAL_STATE, errors: {} };
-
     this.formValidation = formValidation.bind(this);
   }
 
