@@ -1,15 +1,25 @@
 export default function formValidation() {
-  const { firstName, lastName, birthDate, phone, site } = this.state;
+  const {
+    firstName,
+    lastName,
+    birthDate,
+    phone,
+    site,
+    about,
+    technologies,
+    project,
+  } = this.state;
   let isValid = true;
   const errors = {};
-  const regexp = /^[A-Z]/;
+  const nameRegexp = /^[A-Z]/;
   const phoneRegexp = /^\d+$/;
   const siteRegexp = /^https:\/\//;
+  const maxLengthTextArea = 600;
 
   if (firstName.trim().length === 0) {
     errors.firstNameIsRequired = "First name is required";
     isValid = false;
-  } else if (!regexp.test(firstName)) {
+  } else if (!nameRegexp.test(firstName)) {
     errors.firstNameFirstLetter =
       "First name should start with the uppercase symbol";
     isValid = false;
@@ -17,7 +27,7 @@ export default function formValidation() {
   if (lastName.trim().length === 0) {
     errors.lastNameIsRequired = "Last name is required";
     isValid = false;
-  } else if (!regexp.test(lastName)) {
+  } else if (!nameRegexp.test(lastName)) {
     errors.lastNameFirstLetter =
       "Last name should start with the uppercase symbol";
     isValid = false;
@@ -45,6 +55,31 @@ export default function formValidation() {
   }
   if (!siteRegexp.test(site)) {
     errors.siteNotValid = "Site address should start with https:// ";
+    isValid = false;
+  }
+  if (about.length === 0) {
+    errors.aboutIsEmpty = "Please write something about youself";
+    isValid = false;
+  }
+  if (about.length > maxLengthTextArea) {
+    errors.aboutLengthExceed = `Max length ${maxLengthTextArea} symbols exceed`;
+    isValid = false;
+  }
+  if (project.length === 0) {
+    errors.projectIsEmpty =
+      "Please provide a short description of your last project";
+    isValid = false;
+  }
+  if (project.length > maxLengthTextArea) {
+    errors.projectLengthExceed = `Max length ${maxLengthTextArea} symbols exceed`;
+    isValid = false;
+  }
+  if (technologies.length === 0) {
+    errors.technologiesIsEmpty = "Please write what technologies you know";
+    isValid = false;
+  }
+  if (technologies.length > maxLengthTextArea) {
+    errors.technologiesLengthExceed = `Max length ${maxLengthTextArea} symbols exceed`;
     isValid = false;
   }
 
