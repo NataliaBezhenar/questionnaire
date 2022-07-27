@@ -1,8 +1,8 @@
 import { Component } from "react";
+import InputError from "./InputError";
 
 class Inputs extends Component {
   render() {
-    const { errors } = this.props.textValue;
     return (
       <div className="form__inputs-group">
         <div className="input-field">
@@ -16,15 +16,10 @@ class Inputs extends Component {
               placeholder="John"
             />
           </label>
-          {Object.keys(errors).map((key) => {
-            if (key.includes("firstName")) {
-              return (
-                <p key={Math.random()} className="form__error">
-                  {errors[key]}
-                </p>
-              );
-            }
-          })}
+          <InputError
+            inputErrors={this.props.textValue}
+            nameOfInput="firstName"
+          />
         </div>
 
         <div className="input-field">
@@ -38,15 +33,10 @@ class Inputs extends Component {
               placeholder="Johnson"
             />
           </label>
-          {Object.keys(errors).map((key) => {
-            if (key.includes("lastName")) {
-              return (
-                <p key={Math.random()} className="form__error">
-                  {errors[key]}
-                </p>
-              );
-            }
-          })}
+          <InputError
+            inputErrors={this.props.textValue}
+            nameOfInput="lastName"
+          />
         </div>
 
         <div className="input-field">
@@ -62,6 +52,10 @@ class Inputs extends Component {
               //required
             />
           </label>
+          <InputError
+            inputErrors={this.props.textValue}
+            nameOfInput="birthDate"
+          />
         </div>
 
         <div className="input-field">
@@ -72,11 +66,10 @@ class Inputs extends Component {
               name="phone"
               value={this.props.textValue.phone}
               onChange={this.props.onInputChange}
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              //required
-              placeholder="123-123-1234"
+              placeholder="7-7777-77-77"
             />
           </label>
+          <InputError inputErrors={this.props.textValue} nameOfInput="phone" />
         </div>
 
         <div className="input-field">
@@ -98,3 +91,4 @@ class Inputs extends Component {
 }
 
 export default Inputs;
+// <InputError inputErrors={errors} />

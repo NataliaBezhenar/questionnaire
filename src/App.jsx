@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 
 class App extends Component {
   formSubmitHandler = (data) => {
+    console.log("in App.js");
     console.log(data);
   };
 
