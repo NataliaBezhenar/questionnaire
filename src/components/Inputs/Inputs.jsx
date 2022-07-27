@@ -84,6 +84,7 @@ class Inputs extends Component {
               placeholder="https://developer.mozilla.org/"
             />
           </label>
+          <InputError inputErrors={this.props.textValue} nameOfInput="site" />
         </div>
       </div>
     );
