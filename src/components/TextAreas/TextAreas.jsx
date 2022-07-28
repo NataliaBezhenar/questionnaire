@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./TextAreas.css";
-import InputError from "../Inputs/InputError";
+import FormError from "../FormError/FormError";
 import SymbolsCounter from "./SymbolsCounter";
 
 class TextAreas extends Component {
@@ -21,7 +21,7 @@ class TextAreas extends Component {
             />
           </label>
           <SymbolsCounter fieldLength={this.props.textValue.about.length} />
-          <InputError inputErrors={this.props.textValue} nameOfInput="about" />
+          <FormError inputErrors={this.props.textValue} nameOfInput="about" />
         </div>
 
         <div className="input-field">
@@ -40,7 +40,7 @@ class TextAreas extends Component {
           <SymbolsCounter
             fieldLength={this.props.textValue.technologies.length}
           />
-          <InputError
+          <FormError
             inputErrors={this.props.textValue}
             nameOfInput="technologies"
           />
@@ -60,10 +60,7 @@ class TextAreas extends Component {
             />
           </label>
           <SymbolsCounter fieldLength={this.props.textValue.project.length} />
-          <InputError
-            inputErrors={this.props.textValue}
-            nameOfInput="project"
-          />
+          <FormError inputErrors={this.props.textValue} nameOfInput="project" />
         </div>
       </div>
     );

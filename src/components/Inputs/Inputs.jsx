@@ -1,5 +1,5 @@
 import { Component } from "react";
-import InputError from "./InputError";
+import FormError from "../FormError/FormError";
 
 class Inputs extends Component {
   render() {
@@ -17,7 +17,7 @@ class Inputs extends Component {
               placeholder="John"
             />
           </label>
-          <InputError
+          <FormError
             inputErrors={this.props.textValue}
             nameOfInput="firstName"
           />
@@ -35,7 +35,7 @@ class Inputs extends Component {
               onBlur={this.props.onBlur}
             />
           </label>
-          <InputError
+          <FormError
             inputErrors={this.props.textValue}
             nameOfInput="lastName"
           />
@@ -54,7 +54,7 @@ class Inputs extends Component {
               //required
             />
           </label>
-          <InputError
+          <FormError
             inputErrors={this.props.textValue}
             nameOfInput="birthDate"
           />
@@ -71,7 +71,7 @@ class Inputs extends Component {
               placeholder="7-7777-77-77"
             />
           </label>
-          <InputError inputErrors={this.props.textValue} nameOfInput="phone" />
+          <FormError inputErrors={this.props.textValue} nameOfInput="phone" />
         </div>
 
         <div className="input-field">
@@ -87,7 +87,7 @@ class Inputs extends Component {
               onBlur={this.props.onBlur}
             />
           </label>
-          <InputError inputErrors={this.props.textValue} nameOfInput="site" />
+          <FormError inputErrors={this.props.textValue} nameOfInput="site" />
         </div>
       </div>
     );

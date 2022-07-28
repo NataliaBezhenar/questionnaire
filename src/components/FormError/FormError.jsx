@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-class InputError extends Component {
+class FormError extends Component {
   render() {
     const { errors } = this.props.inputErrors;
 
@@ -20,4 +20,4 @@ class InputError extends Component {
     );
   }
 }
-export default InputError;
+export default FormError;
