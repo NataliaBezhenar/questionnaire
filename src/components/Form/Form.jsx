@@ -5,6 +5,7 @@ import Buttons from "../Buttons/Buttons";
 import TextAreas from "../TextAreas/TextAreas";
 import Inputs from "../Inputs/Inputs";
 import formValidation from "../../services/formValidation";
+import { validatePhoneNumber } from "../../services/validatePhoneNumber";
 
 const INITIAL_STATE = {
   firstName: "",
@@ -25,10 +26,20 @@ class Form extends Component {
   }
 
   handleChange = (e) => {
-    const { name, value } = e.currentTarget;
+    const { name, value } = e.target;
+    if (name === "phone") {
+      this.setState({
+        [name]: validatePhoneNumber(value),
+      });
+      return;
+    }
     this.setState({
       [name]: value,
     });
+  };
+
+  onBlur = (e) => {
+    this.setState({ [e.target.name]: e.target.value.trim() });
   };
 
   resetForm = () => {
@@ -51,7 +62,11 @@ class Form extends Component {
         onSubmit={this.handleSubmit}
         onReset={this.resetForm}
       >
-        <Inputs onInputChange={this.handleChange} textValue={this.state} />
+        <Inputs
+          onInputChange={this.handleChange}
+          textValue={this.state}
+          onBlur={this.onBlur}
+        />
         <TextAreas
           onTextAreaChange={this.handleChange}
           textValue={this.state}

@@ -14,7 +14,7 @@ class InputError extends Component {
               </p>
             );
           }
-          return <div></div>;
+          return <div key={Math.random()}></div>;
         })}
       </>
     );

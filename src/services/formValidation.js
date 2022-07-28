@@ -41,12 +41,11 @@ export default function formValidation() {
     isValid = false;
   }
   if (phone.length > 12) {
-    errors.phoneLimitExceed = "Phone number can contain 12 symbols max";
+    errors.phoneLimitExceed = `Phone number can contain 12 symbols max, now it contains ${phone.length} symbols`;
     isValid = false;
   }
-  if (!phoneRegexp.test(phone.replace("-", ""))) {
-    errors.phoneWrongFormat =
-      "Please enter numbers only or enter value according format 7-7777-77-77";
+  if (!phoneRegexp.test(phone.replace(/-/g, ""))) {
+    errors.phoneWrongFormat = "Please enter numbers only";
     isValid = false;
   }
   if (site === "") {

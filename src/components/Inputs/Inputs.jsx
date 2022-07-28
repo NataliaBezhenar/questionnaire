@@ -13,6 +13,7 @@ class Inputs extends Component {
               name="firstName"
               value={this.props.textValue.firstName}
               onChange={this.props.onInputChange}
+              onBlur={this.props.onBlur}
               placeholder="John"
             />
           </label>
@@ -31,6 +32,7 @@ class Inputs extends Component {
               value={this.props.textValue.lastName}
               onChange={this.props.onInputChange}
               placeholder="Johnson"
+              onBlur={this.props.onBlur}
             />
           </label>
           <InputError
@@ -82,6 +84,7 @@ class Inputs extends Component {
               value={this.props.textValue.site}
               onChange={this.props.onInputChange}
               placeholder="https://developer.mozilla.org/"
+              onBlur={this.props.onBlur}
             />
           </label>
           <InputError inputErrors={this.props.textValue} nameOfInput="site" />
@@ -92,4 +95,3 @@ class Inputs extends Component {
 }
 
 export default Inputs;
-// <InputError inputErrors={errors} />
