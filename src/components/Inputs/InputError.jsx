@@ -14,6 +14,7 @@ class InputError extends Component {
               </p>
             );
           }
+          return <div></div>;
         })}
       </>
     );
