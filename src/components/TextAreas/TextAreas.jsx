@@ -18,6 +18,7 @@ class TextAreas extends Component {
               value={this.props.textValue.about}
               onChange={this.props.onTextAreaChange}
               placeholder="Few words about yourself..."
+              onBlur={this.props.onBlur}
             />
           </label>
           <SymbolsCounter fieldLength={this.props.textValue.about.length} />
@@ -35,6 +36,7 @@ class TextAreas extends Component {
               value={this.props.textValue.technologies}
               onChange={this.props.onTextAreaChange}
               placeholder="HTML5, CSS3, JavaScript..."
+              onBlur={this.props.onBlur}
             />
           </label>
           <SymbolsCounter
@@ -57,6 +59,7 @@ class TextAreas extends Component {
               value={this.props.textValue.project}
               onChange={this.props.onTextAreaChange}
               placeholder="Describe your last project please"
+              onBlur={this.props.onBlur}
             />
           </label>
           <SymbolsCounter fieldLength={this.props.textValue.project.length} />

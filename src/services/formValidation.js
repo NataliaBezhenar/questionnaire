@@ -39,20 +39,17 @@ export default function formValidation() {
   if (phone === "") {
     errors.phoneIsEmpty = "Phone number is required";
     isValid = false;
-  }
-  if (phone.length > 12) {
-    errors.phoneLimitExceed = `Phone number can contain 12 symbols max, now it contains ${phone.length} symbols`;
+  } else if (phone.length > 12) {
+    errors.phoneLimitExceed = `Phone number can contain not more then 12 symbols, now it contains ${phone.length} symbols`;
     isValid = false;
-  }
-  if (!phoneRegexp.test(phone.replace(/-/g, ""))) {
+  } else if (!phoneRegexp.test(phone.replace(/-/g, ""))) {
     errors.phoneWrongFormat = "Please enter numbers only";
     isValid = false;
   }
   if (site === "") {
     errors.siteIsEmpty = "Site address is required";
     isValid = false;
-  }
-  if (!siteRegexp.test(site)) {
+  } else if (!siteRegexp.test(site)) {
     errors.siteNotValid = "Site address should start with https:// ";
     isValid = false;
   }

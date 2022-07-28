@@ -70,6 +70,7 @@ class Form extends Component {
         <TextAreas
           onTextAreaChange={this.handleChange}
           textValue={this.state}
+          onBlur={this.onBlur}
         />
 
         <Buttons />
