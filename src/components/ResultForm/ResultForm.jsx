@@ -67,7 +67,7 @@ class ResultForm extends Component {
           </tbody>
         </table>
         <button
-          className="btn btn-outline result-form_btn"
+          className={`${styles.btn} ${styles["btn-outline"]} ${styles["result-form_btn"]}`}
           type="submit"
           onClick={() => window.location.reload(false)}
         >
