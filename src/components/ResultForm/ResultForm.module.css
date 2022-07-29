@@ -64,3 +64,15 @@ tbody .zebra-tbl-row:nth-child(odd) {
   background-color: #9c36b5;
   color: #f8f0fc;
 }
+
+@media (max-width: 42.5rem) {
+  .result-form__heading {
+    font-size: 1.8rem;
+  }
+
+  .zebra-tbl {
+    max-width: 40rem;
+    margin: 2rem 0 5rem;
+    font-size: 1.4rem;
+  }
+}
