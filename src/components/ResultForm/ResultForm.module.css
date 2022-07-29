@@ -14,7 +14,7 @@
   font-size: 1.4rem;
 }
 .zebra-tbl {
-  width: 80rem;
+  max-width: 80rem;
   margin: 3rem 0 10rem;
   border-collapse: collapse;
   font-size: 1.8rem;
