@@ -7,8 +7,18 @@ class ResultForm extends Component {
   }
 
   render() {
-    const { firstName, lastName, phone, site, about, technologies, project } =
-      this.props.formData.answers;
+    const {
+      firstName,
+      lastName,
+      birthDate,
+      phone,
+      site,
+      about,
+      technologies,
+      project,
+    } = this.props.formData.answers;
+
+    const dateOptions = { year: "numeric", month: "long", day: "numeric" };
 
     return (
       <div className="result-form">
@@ -27,6 +37,12 @@ class ResultForm extends Component {
             <tr className="zebra-tbl-row">
               <th className="zebra-tbl-row-head">Last name</th>
               <td className="zebra-tbl-row-data">{lastName}</td>
+            </tr>
+            <tr className="zebra-tbl-row">
+              <th className="zebra-tbl-row-head">Birth date</th>
+              <td className="zebra-tbl-row-data">
+                {new Date(birthDate).toLocaleString("en-US", dateOptions)}
+              </td>
             </tr>
             <tr className="zebra-tbl-row">
               <th className="zebra-tbl-row-head">Phone number</th>

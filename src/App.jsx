@@ -13,10 +13,7 @@ class App extends Component {
   }
 
   formSubmitHandler = (data) => {
-    console.log("in App.js");
-    this.setState({ answers: data, dataRecieved: true }, () => {
-      console.log(this.state, "answers");
-    });
+    this.setState({ answers: data, dataRecieved: true }, () => {});
   };
 
   componentDidMount() {
@@ -30,8 +27,9 @@ class App extends Component {
       <>
         <Container>
           <Header />
-          {this.state.dataRecieved && <ResultForm formData={this.state} />}
-          {!this.state.dataRecieved && (
+          {this.state.dataRecieved ? (
+            <ResultForm formData={this.state} />
+          ) : (
             <Form onFormSubmit={this.formSubmitHandler} />
           )}
         </Container>

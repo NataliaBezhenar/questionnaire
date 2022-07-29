@@ -46,7 +46,7 @@ class Inputs extends Component {
             Birth Date
             <input
               type="date"
-              min="1950-01-01"
+              min="1900-01-01"
               max="2022-12-31"
               name="birthDate"
               value={this.props.textValue.birthDate}
