@@ -1,9 +1,9 @@
 import { Component } from "react";
-import Container from "./components/Container/Container";
-import Footer from "./components/Footer/Footer";
+import Container from "./components/Container";
+import Footer from "./components/Footer";
 import Form from "./components/Form/Form";
-import Header from "./components/Header/Header";
-import ResultForm from "./components/ResultForm/ResultForm";
+import Header from "./components/Header";
+import ResultForm from "./components/ResultForm";
 
 class App extends Component {
   constructor(props) {
@@ -25,8 +25,8 @@ class App extends Component {
   render() {
     return (
       <>
+        <Header />
         <Container>
-          <Header />
           {this.state.dataRecieved ? (
             <ResultForm formData={this.state} />
           ) : (

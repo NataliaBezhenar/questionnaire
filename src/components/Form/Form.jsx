@@ -1,9 +1,9 @@
 import { Component } from "react";
 import styles from "./Form.module.css";
 
-import Buttons from "../Buttons/Buttons";
-import TextAreas from "../TextAreas/TextAreas";
-import Inputs from "../Inputs/Inputs";
+import Buttons from "../Buttons";
+import TextAreas from "../TextAreas";
+import Inputs from "../Inputs";
 import formValidation from "../../services/formValidation";
 import { validatePhoneNumber } from "../../services/validatePhoneNumber";
 
