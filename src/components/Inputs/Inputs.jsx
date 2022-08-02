@@ -42,12 +42,9 @@ class Inputs extends Component {
             Birth Date
             <input
               type="date"
-              min="1950-01-01"
-              max="2022-12-31"
               name="birthDate"
               value={this.props.textValue.birthDate}
               onChange={this.props.onInputChange}
-              //required
             />
           </label>
         </div>
@@ -61,7 +58,6 @@ class Inputs extends Component {
               value={this.props.textValue.phone}
               onChange={this.props.onInputChange}
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              //required
               placeholder="123-123-1234"
             />
           </label>
