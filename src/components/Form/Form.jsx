@@ -18,9 +18,8 @@ const INITIAL_STATE = {
   project: "",
 };
 
-export default function Form() {
-  const initialValues = INITIAL_STATE;
-  const [formValues, setFormValues] = useState(initialValues);
+export default function Form({ onFormSubmit }) {
+  const [formValues, setFormValues] = useState(INITIAL_STATE);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -29,16 +28,12 @@ export default function Form() {
     setFormValues({ ...formValues, [name]: value.trim() });
   };
 
-  const resetForm = () => {
-    setFormValues(INITIAL_STATE);
-    setFormErrors({});
-    setIsSubmit(false);
-  };
-
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
+      onFormSubmit(formValues);
     }
-  }, [formErrors, formValues, isSubmit]);
+  }, [formErrors, isSubmit, onFormSubmit, formValues]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "phone") {
@@ -50,35 +45,31 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormErrors(formValidation(formValues));
+    setIsSubmit(true);
+  };
 
-    setFormErrors(() => formValidation(formValues));
-
-    // setFormErrors(formValidation(formValues));
-    // setIsSubmit(true);
+  const resetForm = () => {
+    setFormValues(INITIAL_STATE);
+    setFormErrors({});
+    setIsSubmit(false);
   };
 
   return (
-    <>
-      {Object.keys(formErrors).length === 0 && isSubmit ? (
-        <div>Success</div>
-      ) : (
-        <div>Review needed</div>
-      )}
-      <form className={styles.form} onSubmit={handleSubmit} onReset={resetForm}>
-        <Inputs
-          onInputChange={handleChange}
-          textValue={formValues}
-          onBlur={onBlur}
-          formErrors={formErrors}
-        />
-        <TextAreas
-          onTextAreaChange={handleChange}
-          textValue={formValues}
-          onBlur={onBlur}
-          formErrors={formErrors}
-        />
-        <Buttons />
-      </form>
-    </>
+    <form className={styles.form} onSubmit={handleSubmit} onReset={resetForm}>
+      <Inputs
+        onInputChange={handleChange}
+        textValue={formValues}
+        onBlur={onBlur}
+        formErrors={formErrors}
+      />
+      <TextAreas
+        onTextAreaChange={handleChange}
+        textValue={formValues}
+        onBlur={onBlur}
+        formErrors={formErrors}
+      />
+      <Buttons />
+    </form>
   );
 }

@@ -10,7 +10,7 @@ export default function ResultForm({ formData }) {
     about,
     technologies,
     project,
-  } = formData.answers;
+  } = formData;
 
   const dateOptions = { year: "numeric", month: "long", day: "numeric" };
 
