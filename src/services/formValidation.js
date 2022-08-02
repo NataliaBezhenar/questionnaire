@@ -1,4 +1,4 @@
-export default function formValidation() {
+export const formValidation = (values) => {
   const {
     firstName,
     lastName,
@@ -8,9 +8,9 @@ export default function formValidation() {
     about,
     technologies,
     project,
-  } = this.state;
-  let isValid = true;
+  } = values;
   const errors = {};
+  let isValid = true;
   const nameRegexp = /^[A-Z]/;
   const phoneRegexp = /^\d+$/;
   const siteRegexp = /^https:\/\//;
@@ -79,6 +79,5 @@ export default function formValidation() {
     isValid = false;
   }
 
-  this.setState({ errors });
-  return isValid;
-}
+  return errors;
+};

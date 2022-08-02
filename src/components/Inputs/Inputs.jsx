@@ -1,7 +1,12 @@
 import FormError from "../FormError";
 import styles from "../Form/Form.module.css";
 
-export default function Inputs({ textValue, onInputChange, onBlur }) {
+export default function Inputs({
+  textValue,
+  onInputChange,
+  onBlur,
+  formErrors,
+}) {
   return (
     <div className={styles["form__inputs-group"]}>
       <div className={styles["input-field"]}>
@@ -16,7 +21,7 @@ export default function Inputs({ textValue, onInputChange, onBlur }) {
             placeholder="John"
           />
         </label>
-        <FormError inputErrors={textValue} nameOfInput="firstName" />
+        <FormError inputErrors={formErrors} nameOfInput="firstName" />
       </div>
 
       <div className={styles["input-field"]}>
@@ -31,7 +36,7 @@ export default function Inputs({ textValue, onInputChange, onBlur }) {
             onBlur={onBlur}
           />
         </label>
-        <FormError inputErrors={textValue} nameOfInput="lastName" />
+        <FormError inputErrors={formErrors} nameOfInput="lastName" />
       </div>
 
       <div className={styles["input-field"]}>
@@ -39,15 +44,12 @@ export default function Inputs({ textValue, onInputChange, onBlur }) {
           Birth Date
           <input
             type="date"
-            min="1900-01-01"
-            max="2022-12-31"
             name="birthDate"
             value={textValue.birthDate}
             onChange={onInputChange}
-            //required
           />
         </label>
-        <FormError inputErrors={textValue} nameOfInput="birthDate" />
+        <FormError inputErrors={formErrors} nameOfInput="birthDate" />
       </div>
 
       <div className={styles["input-field"]}>
@@ -61,7 +63,7 @@ export default function Inputs({ textValue, onInputChange, onBlur }) {
             placeholder="7-7777-77-77"
           />
         </label>
-        <FormError inputErrors={textValue} nameOfInput="phone" />
+        <FormError inputErrors={formErrors} nameOfInput="phone" />
       </div>
 
       <div className={styles["input-field"]}>
@@ -77,7 +79,7 @@ export default function Inputs({ textValue, onInputChange, onBlur }) {
             onBlur={onBlur}
           />
         </label>
-        <FormError inputErrors={textValue} nameOfInput="site" />
+        <FormError inputErrors={formErrors} nameOfInput="site" />
       </div>
     </div>
   );

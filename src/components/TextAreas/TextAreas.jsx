@@ -3,7 +3,12 @@ import SymbolsCounter from "../SymbolsCounter";
 import styles from "./TextAreas.module.css";
 import formStyles from "../Form/Form.module.css";
 
-export default function TextAreas({ textValue, onTextAreaChange, onBlur }) {
+export default function TextAreas({
+  textValue,
+  onTextAreaChange,
+  onBlur,
+  formErrors,
+}) {
   return (
     <div className={styles["form__text-areas"]}>
       <div className={formStyles["input-field"]}>
@@ -21,7 +26,7 @@ export default function TextAreas({ textValue, onTextAreaChange, onBlur }) {
           />
         </label>
         <SymbolsCounter fieldLength={textValue.about.length} />
-        <FormError inputErrors={textValue} nameOfInput="about" />
+        <FormError inputErrors={formErrors} nameOfInput="about" />
       </div>
 
       <div className={formStyles["input-field"]}>
@@ -39,7 +44,7 @@ export default function TextAreas({ textValue, onTextAreaChange, onBlur }) {
           />
         </label>
         <SymbolsCounter fieldLength={textValue.technologies.length} />
-        <FormError inputErrors={textValue} nameOfInput="technologies" />
+        <FormError inputErrors={formErrors} nameOfInput="technologies" />
       </div>
 
       <div className={formStyles["input-field"]}>
@@ -57,7 +62,7 @@ export default function TextAreas({ textValue, onTextAreaChange, onBlur }) {
           />
         </label>
         <SymbolsCounter fieldLength={textValue.project.length} />
-        <FormError inputErrors={textValue} nameOfInput="project" />
+        <FormError inputErrors={formErrors} nameOfInput="project" />
       </div>
     </div>
   );
