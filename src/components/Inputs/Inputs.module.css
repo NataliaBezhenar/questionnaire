@@ -1,16 +1,3 @@
-.form__text-areas {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-}
-
-.form__text-areas textarea {
-  font-size: 1.6rem;
-  padding: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
 .input-field label {
   font-weight: bold;
   font-size: 1.6rem;
@@ -26,4 +13,18 @@
   border: 1px solid #ccc;
   color: #555;
   max-width: 100%;
+}
+
+.form__inputs-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 76.8rem) {
+  .form__inputs-group {
+    display: flex;
+    flex-direction: column;
+  }
 }
