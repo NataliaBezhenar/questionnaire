@@ -1,7 +1,6 @@
 import FormError from "../FormError";
 import SymbolsCounter from "../SymbolsCounter";
 import styles from "./TextAreas.module.css";
-import formStyles from "../Form/Form.module.css";
 
 export default function TextAreas({
   textValue,
@@ -11,7 +10,7 @@ export default function TextAreas({
 }) {
   return (
     <div className={styles["form__text-areas"]}>
-      <div className={formStyles["input-field"]}>
+      <div className={styles["input-field"]}>
         <label>
           About Yourself
           <textarea
@@ -29,7 +28,7 @@ export default function TextAreas({
         <FormError inputErrors={formErrors} nameOfInput="about" />
       </div>
 
-      <div className={formStyles["input-field"]}>
+      <div className={styles["input-field"]}>
         <label>
           Technologies Stack
           <textarea
@@ -47,7 +46,7 @@ export default function TextAreas({
         <FormError inputErrors={formErrors} nameOfInput="technologies" />
       </div>
 
-      <div className={formStyles["input-field"]}>
+      <div className={styles["input-field"]}>
         <label>
           Last Project Description
           <textarea

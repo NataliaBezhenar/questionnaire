@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import styles from "./Form.module.css";
-
 import Buttons from "../Buttons";
 import TextAreas from "../TextAreas";
 import Inputs from "../Inputs";
@@ -56,7 +54,7 @@ export default function Form({ onFormSubmit }) {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit} onReset={resetForm}>
+    <form onSubmit={handleSubmit} onReset={resetForm}>
       <Inputs
         onInputChange={handleChange}
         textValue={formValues}

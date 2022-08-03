@@ -1,5 +1,5 @@
 import FormError from "../FormError";
-import styles from "../Form/Form.module.css";
+import styles from "./Inputs.module.css";
 
 export default function Inputs({
   textValue,
